@@ -10,22 +10,4 @@ myApp.service( 'ListingService', function( $http ) {
     });
   }; // end getListings
 
-  // sv.getSearch = function(searchFor) {
-  //   // assemble search term from ng-model "searchInput"
-  //   var searchUrl = "http://api.listing.com/v1/gifs/search?q=";
-  //   // target search input
-  //   searchUrl += searchFor;
-  //   searchUrl += "&api_key=dc6zaTOxFJmzC";
-  //   console.log( 'searching for: ', searchUrl);
-  //
-  //   return $http.get( searchUrl ).then( function( response ){
-  //     console.log( 'response is: ', response);
-  //
-  //     // since we only display one image...
-  //     // ...choose a random one in results to display
-  //     var randomIndexToSearch = Math.floor(Math.random() * 25);
-  //     sv.searchGif = response.data.data[randomIndexToSearch].images.downsized.url;
-  //   });
-  // };
-
 });

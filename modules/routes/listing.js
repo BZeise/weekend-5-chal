@@ -7,11 +7,6 @@ var mongoose = require('mongoose');
 router.use(bodyParser.urlencoded( {extended: true} ) );
 router.use(bodyParser.json());
 
-// router.get('/', function( req, res) {
-//   console.log('in listing.js, req.body is: ', req.body);
-//   res.send( "s'all good, man");
-// });
-
 // 27017 is default mongo port
 mongoose.connect('localhost:27017/realestate');
 var listingSchema = new mongoose.Schema({
