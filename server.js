@@ -3,10 +3,10 @@ var app = express();
 var path = require( 'path' );
 var bodyParser = require( 'body-parser' );
 var index = require( './modules/routes/index' );
-//var listing = require( './modules/routes/listing' );
+var listing = require( './modules/routes/listing' );
 
 app.use( '/', index );
-//app.use( '/listing', listing );
+app.use( '/listing', listing );
 app.use( bodyParser.json() );
 app.use( express.static( 'public' ) );
 
