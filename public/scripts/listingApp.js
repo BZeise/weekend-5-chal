@@ -15,4 +15,12 @@ myApp.controller('ListingController', function( ListingService ) {
     });
   }; // end showListings
 
+  vm.propertyName = 'city';
+  vm.reverse = false;
+
+  vm.sortBy = function(propertyName) {
+    console.log('sortBy clicked, passing: ', propertyName);
+    vm.reverse = (vm.propertyName === propertyName) ? !vm.reverse : false;
+    vm.propertyName = propertyName;
+  };
 });

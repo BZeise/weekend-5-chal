@@ -16,15 +16,25 @@
 <body ng-app="myApp">
   <header><h1>Weekend 5 Challenge -- Fake Estate</h1></header>
   <div class="container" ng-controller="ListingController as lc"  ng-init="lc.showListings()">
+    <pre>Sort by = {{lc.propertyName}}; reverse = {{lc.reverse}}</pre>
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>City</th>
-          <th>Square Footage</th>
-          <th>Cost to Buy, or Monthly Rent</th>
+          <th>
+            <button ng-click="lc.sortBy('city')">City</button>
+            <span class="sortorder" ng-show="lc.propertyName === 'city'" ng-class="{reverse: lc.reverse}"></span>
+          </th>
+          <th>
+            <button ng-click="lc.sortBy('sqft')">Square Footage</button>
+            <span class="sortorder" ng-show="lc.propertyName === 'sqft'" ng-class="{reverse: lc.reverse}"></span>
+          </th>
+          <th>
+            <button ng-click="lc.sortBy('cost')">Cost to Buy or Rent</button>
+            <span class="sortorder" ng-show="lc.propertyName === 'cost'" ng-class="{reverse: lc.reverse}"></span>
+          </th>
         </tr>
       </thead>
-      <tbody ng-repeat="listing in lc.arrayToShow">
+      <tbody ng-repeat="listing in lc.arrayToShow | orderBy:lc.propertyName:lc.reverse ">
         <tr ng-switch="listing.rent || '_undefined_'">
           <td>{{listing.city}}</td>
           <td>{{listing.sqft}}</td>
